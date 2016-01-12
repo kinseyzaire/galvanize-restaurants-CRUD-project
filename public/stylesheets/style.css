@@ -1,8 +1,58 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  border: 1px solid red;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+body {
+   margin: 0;
+   padding: 0;
+   font: 14px "Quicksand", Helvetica, Arial, sans-serif;
+}
+
+header {
+   width: 100%;
+   background-color: #7cc576;
+   color: black;
+   text-align: center;
+}
+
+main {
+   padding: 50px;
+   width: 79%;
+   margin: 0 auto;
+   overflow: auto;
+}
+
+h1 {
+   font-size: 3em;
+   line-height: 0;
+}
+
+h2 {
+   line-height: 0;
+   margin-top: 0;
+}
+
+h3 {
+   line-height: 0;
+   margin-top: 0;
+}
+
+.restaurantSquare {
+   background-color: #eee;
+   border: 2px solid black;
+   width: 250px;
+   height: 300px;
+   float: left;
+   padding: 15px;
+   margin: 25px;
+   background-image: url("italian.png");
+}
+
+.theDeets {
+   margin-top: 200px;
+}
+
+.theScore {
+   float: right;
 }
