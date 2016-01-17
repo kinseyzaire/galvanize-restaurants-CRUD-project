@@ -19,6 +19,10 @@ block content
       h1 employees
       p
         a(href="/restaurants/#{restaurant.id}/employees/new") Add a New Employee
+      for employee in employees
+        - if (employee.restaurant_id === restaurant.id)
+          p
+            a(href="/restaurants/#{restaurant.id}/employees/#{employee.id}") #{employee.first_name} #{employee.last_name}
     div.showww
       h1 reviews
       p

@@ -86,3 +86,7 @@ a {
   padding: 10px;
   float: left;
 }
+
+.hidden {
+  display: none;
+}

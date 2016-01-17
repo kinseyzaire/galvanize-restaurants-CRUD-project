@@ -3,19 +3,21 @@ extends ../layout
 block content 
 
   div.container
-    if restaurant
+    if employee
       h1 Edit Employee
-      form(action='/restaurants/' + restaurant.id + '/employees/' method='post')
+      form(action='/restaurants/' + employee.restaurant_id + '/employees/' + employee.id method='post')
         fieldset
           legend Edit Employee
+          p.hidden
+            input(type="text" id="restaurant_id" name='restaurant_id' value= employee.restaurant_id)
           p
             label(for="name") First Name
             br
-            input(type="text" id="firstname" name='firstname' value= employee.firstname placeholder="First Name")
+            input(type="text" id="first_name" name='first_name' value= employee.first_name placeholder="First Name")
           p
             label(for="name") Last Name
             br
-            input(type="text" id="lastname" name='lastname' value= employee.lastname placeholder="Last Name")
+            input(type="text" id="last_name" name='last_name' value= employee.last_name placeholder="Last Name")
           p
             label(for="position") Position
             br
@@ -26,7 +28,7 @@ block content
               option(value="chef" selected=(employee ? (employee.position === "chef" ? "selected" : undefined) : undefined)) chef
           br
           button(type="submit") Submit
-          button(type="submit") Cancel
+          a(href='/restaurants/' + employee.restaurant_id ) Cancel
 
                   
     

@@ -1,25 +1,12 @@
 extends ../layout 
 
 block content 
-  if restaurant
+  if employee
     div.showww
-      h1 #{restaurant.name} 
-      h3 #{restaurant.city}, #{restaurant.state} 
-      h3 #{restaurant.cuisine}
+      h1 #{employee.first_name} #{employee.last_name}
+      h3 #{employee.position}
       p
-        - var rating = restaurant.rating
-        - for (var x = 0; x < rating; x++)
-          img(src="../images/star.png", alt="rating star") 
-      p #{restaurant.description} 
-      p 
-        a(href='/restaurants/'+ restaurant.id + '/edit') Edit
-        form(action='/restaurants/#{restaurant.id}/delete' method='post')
-          input(type='submit' value='Delete')
-    div.showww
-      h1 employees
+        a(href="/restaurants/#{employee.restaurant_id}/employees/#{employee.id}/edit") Edit Employee
       p
-        a(href="/restaurants/#{restaurant.id}/employees/new") Add a New Employee
-    div.showww
-      h1 reviews
-      p
-        a(href="/restaurants/#{restaurant.id}/reviews/new") Add a New Review
+        form(action='/restaurants/#{employee.restaurant_id}/employees/#{employee.id}/delete' method='post')
+          input(type='submit' value='Delete') 
