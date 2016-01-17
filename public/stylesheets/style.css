@@ -72,3 +72,17 @@ a {
    background-color: #eee;
 
 }
+
+.admin_rows {
+  width: 100%;
+  border-bottom: 2px solid black;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.admin_things {
+  width: 25%;
+  padding: 10px;
+  float: left;
+}

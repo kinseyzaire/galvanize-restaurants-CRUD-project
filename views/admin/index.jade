@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  a(href="/restaurants/new") Add a New Restaurant
+  main
+    if restaurants
+      for restaurant in restaurants
+        div.admin_rows
+          div.admin_things
+            a(href="/restaurants/" + restaurant.id) #{restaurant.name}
+          div.admin_things
+            - var rating = restaurant.rating
+            - for (var x = 0; x < rating; x++)
+              img(src="../images/star.png", alt="rating star") 
+          div.admin_things
+            a(href='/restaurants/'+ restaurant.id + '/edit') Edit
+          div.admin_things
+            form(action='/restaurants/#{restaurant.id}/delete' method='post')
+              input(type='submit' value='Delete')
