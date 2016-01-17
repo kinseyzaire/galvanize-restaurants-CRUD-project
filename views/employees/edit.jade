@@ -1,0 +1,32 @@
+extends ../layout 
+
+block content 
+
+  div.container
+    if restaurant
+      h1 Edit Employee
+      form(action='/restaurants/' + restaurant.id + '/employees/' method='post')
+        fieldset
+          legend Edit Employee
+          p
+            label(for="name") First Name
+            br
+            input(type="text" id="firstname" name='firstname' value= employee.firstname placeholder="First Name")
+          p
+            label(for="name") Last Name
+            br
+            input(type="text" id="lastname" name='lastname' value= employee.lastname placeholder="Last Name")
+          p
+            label(for="position") Position
+            br
+            select
+              option(value="manager" selected=(employee ? (employee.position === "manager" ? "selected" : undefined) : undefined)) manager
+              option(value="server" selected=(employee ? (employee.position === "server" ? "selected" : undefined) : undefined)) server
+              option(value="host" selected=(employee ? (employee.position === "host" ? "selected" : undefined) : undefined)) host
+              option(value="chef" selected=(employee ? (employee.position === "chef" ? "selected" : undefined) : undefined)) chef
+          br
+          button(type="submit") Submit
+          button(type="submit") Cancel
+
+                  
+    

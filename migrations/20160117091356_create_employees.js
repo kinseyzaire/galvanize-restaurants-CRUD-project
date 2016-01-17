@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.integer('restaurant_id');
     table.string('first_name');
     table.string('last_name');
-    table.integer('position');
+    table.string('position');
     table.timestamps();
   })
 };

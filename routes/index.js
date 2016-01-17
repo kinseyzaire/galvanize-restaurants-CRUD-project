@@ -10,6 +10,13 @@ function Employees() {
    return knex('employees');
 }
 
+// function JoinTest() {
+//   return knex('restaurants')
+//     .join('employees', 'restaurants.id', '=', 'employees.restaurant_id')
+//     .select('*');
+// }
+// console.log(JoinTest);
+
 router.get('/', function(req, res, next) {
   Restaurants().select().then(function(results){
     res.render('restaurants/index', {restaurants: results});
@@ -61,19 +68,19 @@ router.post('/restaurants/:id/delete', function (req, res) {
 // admin pages
 
 router.get('/admin', function(req, res, next) {
-   Restaurants().select().then(function(results){
-      res.render('admin/index', {restaurants: results, employees: results});
+   Restaurants().select().then(function(rresults){
+     Employees().select().then(function(eresults){
+       res.render('admin/index', {restaurants: rresults, employees: eresults});
+     });
    });
 });
 
-router.get('/admin/new', function(req, res, next) {
-  res.render('admin/new-employee');
-});
+// add employees
 
-router.post('/admin', function(req, res, next) {
-  Employees().insert(req.body).then(function(result){
-    res.redirect('/admin/index');
-  });
-});
+// router.get('/restaurants/:id/employees/new', function (req, res) {
+//   Restaurants().where('id', req.params.id).first().then(function(result){
+//     res.render('employees/new', { restaurant: result });
+//   });
+// })
 
 module.exports = router;
