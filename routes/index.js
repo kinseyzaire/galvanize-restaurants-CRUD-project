@@ -58,7 +58,6 @@ router.get('/restaurants/:id', function (req, res, next) {
     Employees().where('restaurant_id', req.params.id).then(function(eresults){
       Reviews().where('restaurant_id', req.params.id).then(function(cresults){
         res.render('restaurants/show', { restaurant: rresult, employees: eresults, reviews: cresults });
-        console.log(cresults);
       });
     });
   });

@@ -20,7 +20,7 @@ block content
         p
           label(for="position") Position
           br
-          select
+          select(name="position" type="text" id="position")
             option(value="manager" selected=(employee ? (employee.position === "manager" ? "selected" : undefined) : undefined)) manager
             option(value="server" selected=(employee ? (employee.position === "server" ? "selected" : undefined) : undefined)) server
             option(value="host" selected=(employee ? (employee.position === "host" ? "selected" : undefined) : undefined)) host
