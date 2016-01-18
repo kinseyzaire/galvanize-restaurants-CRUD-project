@@ -1,0 +1,31 @@
+extends ../layout 
+
+block content 
+
+  div.container
+    h1 Add a Review
+    form(action='/restaurants/' + restaurantidentification + '/reviews/' method='post')
+      fieldset
+        legend Add a Review
+        p.hidden
+          input(type="text" id="restaurant_id" name='restaurant_id' value= restaurantidentification)
+        p
+          label(for="username") Name
+          br
+          input(type="text" id="username" name='username' placeholder="Name")
+        p            
+          label Rating
+            input(type="radio" name="rating" value="1")
+            input(type="radio" name="rating" value="2")
+            input(type="radio" name="rating" value="3" checked)
+            input(type="radio" name="rating" value="4")
+            input(type="radio" name="rating" value="5")
+        p
+          label(for="comment") Review
+          br
+          textarea(rows="5" id='comment' name='comment' placeholder="Tell us what you really think")
+        button(type="submit") Submit
+        br
+        a(href='/restaurants/' + restaurantidentification ) Cancel
+
+              

@@ -27,3 +27,8 @@ block content
       h1 reviews
       p
         a(href="/restaurants/#{restaurant.id}/reviews/new") Add a New Review
+      for review in reviews
+        - if (review.restaurant_id === restaurant.id)
+          div
+            a(href="/restaurants/#{restaurant.id}/reviews/#{review.id}") #{review.username}
+            p #{review.comment} 

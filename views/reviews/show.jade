@@ -1,0 +1,12 @@
+extends ../layout 
+
+block content 
+  if review
+    div.showww
+      h1 #{review.username} 
+      h3 #{review.comment}
+      p
+        a(href="/restaurants/#{review.restaurant_id}/reviews/#{review.id}/edit") Edit Review
+      p
+        form(action='/restaurants/#{review.restaurant_id}/reviews/#{review.id}/delete' method='post')
+          input(type='submit' value='Delete') 

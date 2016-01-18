@@ -10,11 +10,11 @@ block content
         p
           label(for="name") Name
           br
-          input(type="text" id="name" name='name' placeholder="Restaurant Name")
+          input(type="text" id="name" name='name' placeholder="Restaurant Name" maxlength="20")
         p
           label(for="city") Location
           br
-          input(type="text" id="city" name='city' placeholder="City")
+          input(type="text" id="city" name='city' placeholder="City" maxlength="20")
         p
           select(name="state" type="text" id="state")
             option(value="AL") Alabama
@@ -89,8 +89,10 @@ block content
         br
         textarea(rows="5" id='description' name='description' placeholder="Short Bio")
         br
-        button(type="submit") Submit
+        button(type="submit" id="clickmeclickme") Submit
         a(href='/restaurants/') Cancel
-
+script(type="text/javascript" src='https://code.jquery.com/jquery-2.2.0.min.js')
+//- script(type="text/javascript" src='../../public/js/addvalidateshit.js')
+script(type="text/javascript" src='../../public/js/test.js')
                   
     

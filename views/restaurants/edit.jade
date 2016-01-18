@@ -11,11 +11,11 @@ block content
           p
             label(for="name") Name
             br
-            input(type="text" id="name" name='name' value= restaurant.name placeholder="Restaurant Name")
+            input(type="text" id="name" name='name' value= restaurant.name placeholder="Restaurant Name" maxlength="20")
           p
             label(for="city") Location
             br
-            input(type="text" id="city" name='city' value= restaurant.city placeholder="City")
+            input(type="text" id="city" name='city' value= restaurant.city placeholder="City" maxlength="20")
           p
             select
               option(value="AL" selected=(restaurant ? (restaurant.state === "AL" ? "selected" : undefined) : undefined)) Alabama
@@ -92,6 +92,7 @@ block content
           br
           button(type="submit") Submit
           a(href='/restaurants/') Cancel
-
+  script(src='https://code.jquery.com/jquery-2.2.0.min.js')
+  script(src='/js/editvalidateshit.js')
                   
     
