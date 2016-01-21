@@ -1,5 +1,5 @@
 var express = require('express');
-var knex = require('../knex.js');
+var knex = require('../db/knex.js');
 var router = express.Router();
 
 function Restaurants() {
