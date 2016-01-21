@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var restaurants = require('./routes/restaurants');
 var employees = require('./routes/employees');
 var reviews = require('./routes/reviews');
+var neighborhoods = require('./routes/neighborhoods');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/', routes);
 app.use('/', restaurants);
 app.use('/', employees);
 app.use('/', reviews);
+app.use('/', neighborhoods);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
