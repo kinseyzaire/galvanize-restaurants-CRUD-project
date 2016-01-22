@@ -8,17 +8,17 @@ block content
         .showww
           a(href="/neighborhoods/#{neighborhood.id}") 
             h1 #{neighborhood.name}
-          div(id="map#{neighborhood.id}" style="height: 200px; width: 440px; margin: 0 auto; background-color: black")
-          a(href="/neighborhoods/#{neighborhood.id}/edit") Edit
-          a(href="/neighborhoods/#{neighborhood.id}/delete") Delete
+          div(id="map#{neighborhood.id}" style="height: 200px; width: 440px; margin: 0 auto; background-color: black; box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)")
+          p
+            a(href="/neighborhoods/#{neighborhood.id}/edit") Edit
+            a(href="/neighborhoods/#{neighborhood.id}/delete") Delete
   script.
     function initMap() {
       var thehoodz = (!{JSON.stringify(neighborhoods)});
       var key = "&key=AIzaSyBWq3Gz3IlIWdXeKYBlNubGRBWd-ENdIno";
-      thehoodz.forEach(function(address,index){
-        var hoodid = (address.id);
-        var center = (address.center).replace(/ /g, "+");
-        //- center = center.replace(/ /g, "+");
+      thehoodz.forEach(function(hood){
+        var hoodid = (hood.id);
+        var center = (hood.center).replace(/ /g, "+");
         $.ajax({
           url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+center+key,
           method: 'GET'
