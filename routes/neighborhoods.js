@@ -1,4 +1,5 @@
 var express = require('express');
+var request = require('request');
 var knex = require('../db/knex.js');
 var router = express.Router();
 
@@ -8,9 +9,33 @@ function Neighborhoods() {
 
 // list all neighborhoods
 
-router.get('/neighborhoods', function(req, res, next) {
-  Neighborhoods().select().then(function(results){
-    res.render('neighborhoods/show', {neighborhoods: results});
+// router.get('/neighborhoods', function(req, res, next) {
+//   Neighborhoods().select().then(function(result){
+//         // console.log(jase.results[0].geometry.location);
+//         res.render('neighborhoods/index', {neighborhood: result, location: epicenter});
+//       }
+//     })
+//   });
+// });
+
+// list a single neighborhood
+
+router.get('/neighborhoods/:id', function(req, res, next) {
+  Neighborhoods().where('id', req.params.id).then(function(result){
+    console.log(result[0]);
+    var google_api = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+    var address = (result[0].center).replace(/ /g, "+");
+    var my_key = "&key=AIzaSyBWq3Gz3IlIWdXeKYBlNubGRBWd-ENdIno";
+    var nresult = result[0];
+    request(google_api+address+my_key, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var jase = JSON.parse(body);
+        var epicenter = jase.results[0].geometry.location;
+        var latitude = epicenter.lat*1;
+        var longitude = epicenter.lng*1;
+        res.render('neighborhoods/show', {neighborhood: nresult, latitude: latitude, longitude: longitude});
+      }
+    })
   });
 });
 

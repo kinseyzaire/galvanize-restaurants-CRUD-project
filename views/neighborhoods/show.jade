@@ -1,14 +1,17 @@
 extends ../layout 
 
 block content 
-  h1 Let's see if we can't get a map
-  div#map
-  script.
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-      });
-    }
-  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
+  .showww
+    h1 #{neighborhood.name}
+    div#map
+    script.
+      function initMap() {
+        var latitude=#{latitude};
+        var longitude=#{longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: latitude, lng: longitude},
+          zoom: 14
+        });
+      }
+    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
   
