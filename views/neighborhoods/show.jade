@@ -1,19 +1,20 @@
 extends ../layout 
 
 block content 
-  .showww
-    h1 #{neighborhood.name}
-    div#map
-  p
+  main
+    .showww
+      h1 #{neighborhood.name}
+      div#map
+    p
+      
+      script.
+        function initMap() {
+          var latitude=#{latitude};
+          var longitude=#{longitude};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: latitude, lng: longitude},
+            zoom: 14
+          });
+        }
+      script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
     
-    script.
-      function initMap() {
-        var latitude=#{latitude};
-        var longitude=#{longitude};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: latitude, lng: longitude},
-          zoom: 14
-        });
-      }
-    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
-  

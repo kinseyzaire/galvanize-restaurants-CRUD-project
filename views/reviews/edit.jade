@@ -1,31 +1,31 @@
 extends ../layout 
 
 block content 
+  main
+    div.container
+      if review
+        h1 Edit a Review
+        form(action='/restaurants/' + review.restaurant_id + '/reviews/' + review.id method='post')
+          fieldset
+            legend Add a Review
+            p.hidden
+              input(type="text" id="restaurant_id" name='restaurant_id' value= review.restaurant_id)
+            p
+              label(for="username") Name
+              br
+              input(type="text" id="username" name='username' value= review.username placeholder="Name")
+            p            
+              label Rating
+                input(type="radio" name="rating" value="1" checked=(review ? (review.rating === 1 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="2" checked=(review ? (review.rating === 2 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="3" checked=(review ? (review.rating === 3 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="4" checked=(review ? (review.rating === 4 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="5" checked=(review ? (review.rating === 5 ? true : undefined): undefined))
+            p
+              label(for="comment") Review
+              br
+              textarea(rows="5" id='comment' name='comment' placeholder="Tell us what you really think") #{review.comment}
+            button(type="submit") Submit
+            a(href='/restaurants/' + restaurantidentification ) Cancel
 
-  div.container
-    if review
-      h1 Edit a Review
-      form(action='/restaurants/' + review.restaurant_id + '/reviews/' + review.id method='post')
-        fieldset
-          legend Add a Review
-          p.hidden
-            input(type="text" id="restaurant_id" name='restaurant_id' value= review.restaurant_id)
-          p
-            label(for="username") Name
-            br
-            input(type="text" id="username" name='username' value= review.username placeholder="Name")
-          p            
-            label Rating
-              input(type="radio" name="rating" value="1" checked=(review ? (review.rating === 1 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="2" checked=(review ? (review.rating === 2 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="3" checked=(review ? (review.rating === 3 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="4" checked=(review ? (review.rating === 4 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="5" checked=(review ? (review.rating === 5 ? true : undefined): undefined))
-          p
-            label(for="comment") Review
-            br
-            textarea(rows="5" id='comment' name='comment' placeholder="Tell us what you really think") #{review.comment}
-          button(type="submit") Submit
-          a(href='/restaurants/' + restaurantidentification ) Cancel
-
-                
+                  

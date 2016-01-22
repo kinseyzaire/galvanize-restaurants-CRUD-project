@@ -1,97 +1,97 @@
 extends ../layout 
 
 block content 
-
-  div.container
-    h1 Add a New Restaurant
-    form(action='/restaurants' method='post')
-      fieldset
-        legend Create Restaurant
-        p
-          label(for="name") Name
+  main
+    div.container
+      h1 Add a New Restaurant
+      form(action='/restaurants' method='post')
+        fieldset
+          legend Create Restaurant
+          p
+            label(for="name") Name
+            br
+            input(type="text" id="name" name='name' placeholder="Restaurant Name" maxlength="20")
+          p
+            label(for="city") Location
+            br
+            input(type="text" id="city" name='city' placeholder="City" maxlength="20")
+          p
+            select(name="state" type="text" id="state")
+              option(value="AL") Alabama
+              option(value="AK") Alaska
+              option(value="AZ") Arizona
+              option(value="AR") Arkansas
+              option(value="CA") California
+              option(value="CO") Colorado
+              option(value="CT") Connecticut
+              option(value="DE") Delaware
+              option(value="DC") District Of Columbia
+              option(value="FL") Florida
+              option(value="GA") Georgia
+              option(value="HI") Hawaii
+              option(value="ID") Idaho
+              option(value="IL") Illinois
+              option(value="IN") Indiana
+              option(value="IA") Iowa
+              option(value="KS") Kansas
+              option(value="KY") Kentucky
+              option(value="LA") Louisiana
+              option(value="ME") Maine
+              option(value="MD") Maryland
+              option(value="MA") Massachusetts
+              option(value="MI") Michigan
+              option(value="MN") Minnesota
+              option(value="MS") Mississippi
+              option(value="MO") Missouri
+              option(value="MT") Montana
+              option(value="NE") Nebraska
+              option(value="NV") Nevada
+              option(value="NH") New Hampshire
+              option(value="NJ") New Jersey
+              option(value="NM") New Mexico
+              option(value="NY") New York
+              option(value="NC") North Carolina
+              option(value="ND") North Dakota
+              option(value="OH") Ohio
+              option(value="OK") Oklahoma
+              option(value="OR") Oregon
+              option(value="PA") Pennsylvania
+              option(value="RI") Rhode Island
+              option(value="SC") South Carolina
+              option(value="SD") South Dakota
+              option(value="TN") Tennessee
+              option(value="TX") Texas
+              option(value="UT") Utah
+              option(value="VT") Vermont
+              option(value="VA") Virginia
+              option(value="WA") Washington
+              option(value="WV") West Virginia
+              option(value="WI") Wisconsin
+              option(value="WY") Wyoming
+          p
+            label(for="cuisine") Cuisine
+            br
+            select(name="cuisine" type="text" id="cuisine")
+              option(value="Mexican") Mexican
+              option(value="Italian") Italian
+              option(value="American") American
+              option(value="Thai") Thai
+              option(value="Vietnamese") Vietnamese
+          p            
+            label Rating
+              input(type="radio" name="rating" value="1")
+              input(type="radio" name="rating" value="2")
+              input(type="radio" name="rating" value="3" checked)
+              input(type="radio" name="rating" value="4")
+              input(type="radio" name="rating" value="5")
+          p
+          label(for="description") Description
           br
-          input(type="text" id="name" name='name' placeholder="Restaurant Name" maxlength="20")
-        p
-          label(for="city") Location
+          textarea(rows="5" id='description' name='description' placeholder="Short Bio")
           br
-          input(type="text" id="city" name='city' placeholder="City" maxlength="20")
-        p
-          select(name="state" type="text" id="state")
-            option(value="AL") Alabama
-            option(value="AK") Alaska
-            option(value="AZ") Arizona
-            option(value="AR") Arkansas
-            option(value="CA") California
-            option(value="CO") Colorado
-            option(value="CT") Connecticut
-            option(value="DE") Delaware
-            option(value="DC") District Of Columbia
-            option(value="FL") Florida
-            option(value="GA") Georgia
-            option(value="HI") Hawaii
-            option(value="ID") Idaho
-            option(value="IL") Illinois
-            option(value="IN") Indiana
-            option(value="IA") Iowa
-            option(value="KS") Kansas
-            option(value="KY") Kentucky
-            option(value="LA") Louisiana
-            option(value="ME") Maine
-            option(value="MD") Maryland
-            option(value="MA") Massachusetts
-            option(value="MI") Michigan
-            option(value="MN") Minnesota
-            option(value="MS") Mississippi
-            option(value="MO") Missouri
-            option(value="MT") Montana
-            option(value="NE") Nebraska
-            option(value="NV") Nevada
-            option(value="NH") New Hampshire
-            option(value="NJ") New Jersey
-            option(value="NM") New Mexico
-            option(value="NY") New York
-            option(value="NC") North Carolina
-            option(value="ND") North Dakota
-            option(value="OH") Ohio
-            option(value="OK") Oklahoma
-            option(value="OR") Oregon
-            option(value="PA") Pennsylvania
-            option(value="RI") Rhode Island
-            option(value="SC") South Carolina
-            option(value="SD") South Dakota
-            option(value="TN") Tennessee
-            option(value="TX") Texas
-            option(value="UT") Utah
-            option(value="VT") Vermont
-            option(value="VA") Virginia
-            option(value="WA") Washington
-            option(value="WV") West Virginia
-            option(value="WI") Wisconsin
-            option(value="WY") Wyoming
-        p
-          label(for="cuisine") Cuisine
-          br
-          select(name="cuisine" type="text" id="cuisine")
-            option(value="Mexican") Mexican
-            option(value="Italian") Italian
-            option(value="American") American
-            option(value="Thai") Thai
-            option(value="Vietnamese") Vietnamese
-        p            
-          label Rating
-            input(type="radio" name="rating" value="1")
-            input(type="radio" name="rating" value="2")
-            input(type="radio" name="rating" value="3" checked)
-            input(type="radio" name="rating" value="4")
-            input(type="radio" name="rating" value="5")
-        p
-        label(for="description") Description
-        br
-        textarea(rows="5" id='description' name='description' placeholder="Short Bio")
-        br
-        button(type="submit" id="clickmeclickme") Submit
-        a(href='/restaurants/') Cancel
-  script(type="text/javascript" src='https://code.jquery.com/jquery-2.2.0.min.js')
-  script(type="text/javascript" src='/js/addvalidateshit.js')
-                  
-    
+          button(type="submit" id="clickmeclickme") Submit
+          a(href='/restaurants/') Cancel
+    script(type="text/javascript" src='https://code.jquery.com/jquery-2.2.0.min.js')
+    script(type="text/javascript" src='/js/addvalidateshit.js')
+                    
+      

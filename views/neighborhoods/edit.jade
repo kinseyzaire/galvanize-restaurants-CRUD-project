@@ -1,23 +1,23 @@
 extends ../layout 
 
 block content 
-
-  div.container
-    h1 Edit Neighborhood
-    form(action='/neighborhoods/' + neighborhood.id method='post')
-      fieldset
-        legend Edit Neighborhood
-        p
-          label(for="name") Name
+  main
+    div.container
+      h1 Edit Neighborhood
+      form(action='/neighborhoods/' + neighborhood.id method='post')
+        fieldset
+          legend Edit Neighborhood
+          p
+            label(for="name") Name
+            br
+            input(type="text" id="name" name='name' value= neighborhood.name placeholder="Name")
+          p
+            label(for="center") Epicenter
+            br
+            input(type="text" id="center" name='center' value= neighborhood.center placeholder="Central Address")
+        
+          button(type="submit") Submit
           br
-          input(type="text" id="name" name='name' value= neighborhood.name placeholder="Name")
-        p
-          label(for="center") Epicenter
-          br
-          input(type="text" id="center" name='center' value= neighborhood.center placeholder="Central Address")
-      
-        button(type="submit") Submit
-        br
-        a(href='/neighborhoods/') Cancel
+          a(href='/neighborhoods/') Cancel
 
-              
+                

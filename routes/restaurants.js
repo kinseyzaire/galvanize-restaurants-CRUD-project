@@ -14,6 +14,17 @@ function Reviews() {
    return knex('reviews');
 }
 
+// admin pages
+// list all restaurants
+
+router.get('/admin', function(req, res, next) {
+   Restaurants().select().then(function(rresults){
+     Employees().select().then(function(eresults){
+       res.render('admin/index', {restaurants: rresults, employees: eresults});
+     });
+   });
+});
+
 // list all restaurants
 
 router.get('/restaurants', function(req, res, next) {

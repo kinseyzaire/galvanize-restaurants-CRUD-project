@@ -1,96 +1,96 @@
 extends ../layout 
 
 block content 
-
-  div.container
-    if restaurant
-      h1 Editing Restaurant
-      form(action='/restaurants/' + restaurant.id method='post')
-        fieldset
-          legend Edit Restaurant
-          p
-            label(for="name") Name
+  main
+    div.container
+      if restaurant
+        h1 Editing Restaurant
+        form(action='/restaurants/' + restaurant.id method='post')
+          fieldset
+            legend Edit Restaurant
+            p
+              label(for="name") Name
+              br
+              input(type="text" id="name" name='name' value= restaurant.name placeholder="Restaurant Name" maxlength="20")
+            p
+              label(for="city") Location
+              br
+              input(type="text" id="city" name='city' value= restaurant.city placeholder="City" maxlength="20")
+            p
+              select
+                option(value="AL" selected=(restaurant ? (restaurant.state === "AL" ? "selected" : undefined) : undefined)) Alabama
+                option(value="AK" selected=(restaurant ? (restaurant.state === "AK" ? "selected" : undefined) : undefined)) Alaska
+                option(value="AZ" selected=(restaurant ? (restaurant.state === "AZ" ? "selected" : undefined) : undefined)) Arizona
+                option(value="AR" selected=(restaurant ? (restaurant.state === "AR" ? "selected" : undefined) : undefined)) Arkansas
+                option(value="CA" selected=(restaurant ? (restaurant.state === "CA" ? "selected" : undefined) : undefined)) California
+                option(value="CO" selected=(restaurant ? (restaurant.state === "CO" ? "selected" : undefined) : undefined)) Colorado
+                option(value="CT" selected=(restaurant ? (restaurant.state === "CT" ? "selected" : undefined) : undefined)) Connecticut
+                option(value="DE" selected=(restaurant ? (restaurant.state === "DE" ? "selected" : undefined) : undefined)) Delaware
+                option(value="DC" selected=(restaurant ? (restaurant.state === "DC" ? "selected" : undefined) : undefined)) District Of Columbia
+                option(value="FL" selected=(restaurant ? (restaurant.state === "FL" ? "selected" : undefined) : undefined)) Florida
+                option(value="GA" selected=(restaurant ? (restaurant.state === "GA" ? "selected" : undefined) : undefined)) Georgia
+                option(value="HI" selected=(restaurant ? (restaurant.state === "HI" ? "selected" : undefined) : undefined)) Hawaii
+                option(value="ID" selected=(restaurant ? (restaurant.state === "ID" ? "selected" : undefined) : undefined)) Idaho
+                option(value="IL" selected=(restaurant ? (restaurant.state === "IL" ? "selected" : undefined) : undefined)) Illinois
+                option(value="IN" selected=(restaurant ? (restaurant.state === "IN" ? "selected" : undefined) : undefined)) Indiana
+                option(value="IA" selected=(restaurant ? (restaurant.state === "IA" ? "selected" : undefined) : undefined)) Iowa
+                option(value="KS" selected=(restaurant ? (restaurant.state === "KS" ? "selected" : undefined) : undefined)) Kansas
+                option(value="KY" selected=(restaurant ? (restaurant.state === "KY" ? "selected" : undefined) : undefined)) Kentucky
+                option(value="LA" selected=(restaurant ? (restaurant.state === "LA" ? "selected" : undefined) : undefined)) Louisiana
+                option(value="ME" selected=(restaurant ? (restaurant.state === "ME" ? "selected" : undefined) : undefined)) Maine
+                option(value="MD" selected=(restaurant ? (restaurant.state === "MD" ? "selected" : undefined) : undefined)) Maryland
+                option(value="MA" selected=(restaurant ? (restaurant.state === "MA" ? "selected" : undefined) : undefined)) Massachusetts
+                option(value="MI" selected=(restaurant ? (restaurant.state === "MI" ? "selected" : undefined) : undefined)) Michigan
+                option(value="MN" selected=(restaurant ? (restaurant.state === "MN" ? "selected" : undefined) : undefined)) Minnesota
+                option(value="MS" selected=(restaurant ? (restaurant.state === "MS" ? "selected" : undefined) : undefined)) Mississippi
+                option(value="MO" selected=(restaurant ? (restaurant.state === "MO" ? "selected" : undefined) : undefined)) Missouri
+                option(value="MT" selected=(restaurant ? (restaurant.state === "MT" ? "selected" : undefined) : undefined)) Montana
+                option(value="NE" selected=(restaurant ? (restaurant.state === "NE" ? "selected" : undefined) : undefined)) Nebraska
+                option(value="NV" selected=(restaurant ? (restaurant.state === "NV" ? "selected" : undefined) : undefined)) Nevada
+                option(value="NH" selected=(restaurant ? (restaurant.state === "NH" ? "selected" : undefined) : undefined)) New Hampshire
+                option(value="NJ" selected=(restaurant ? (restaurant.state === "NJ" ? "selected" : undefined) : undefined)) New Jersey
+                option(value="NM" selected=(restaurant ? (restaurant.state === "NM" ? "selected" : undefined) : undefined)) New Mexico
+                option(value="NY" selected=(restaurant ? (restaurant.state === "NY" ? "selected" : undefined) : undefined)) New York
+                option(value="NC" selected=(restaurant ? (restaurant.state === "NC" ? "selected" : undefined) : undefined)) North Carolina
+                option(value="ND" selected=(restaurant ? (restaurant.state === "ND" ? "selected" : undefined) : undefined)) North Dakota
+                option(value="OH" selected=(restaurant ? (restaurant.state === "OH" ? "selected" : undefined) : undefined)) Ohio
+                option(value="OK" selected=(restaurant ? (restaurant.state === "OK" ? "selected" : undefined) : undefined)) Oklahoma
+                option(value="OR" selected=(restaurant ? (restaurant.state === "OR" ? "selected" : undefined) : undefined)) Oregon
+                option(value="PA" selected=(restaurant ? (restaurant.state === "PA" ? "selected" : undefined) : undefined)) Pennsylvania
+                option(value="RI" selected=(restaurant ? (restaurant.state === "RI" ? "selected" : undefined) : undefined)) Rhode Island
+                option(value="SC" selected=(restaurant ? (restaurant.state === "SC" ? "selected" : undefined) : undefined)) South Carolina
+                option(value="SD" selected=(restaurant ? (restaurant.state === "SD" ? "selected" : undefined) : undefined)) South Dakota
+                option(value="TN" selected=(restaurant ? (restaurant.state === "TN" ? "selected" : undefined) : undefined)) Tennessee
+                option(value="TX" selected=(restaurant ? (restaurant.state === "TX" ? "selected" : undefined) : undefined)) Texas
+                option(value="UT" selected=(restaurant ? (restaurant.state === "UT" ? "selected" : undefined) : undefined)) Utah
+                option(value="VT" selected=(restaurant ? (restaurant.state === "VT" ? "selected" : undefined) : undefined)) Vermont
+                option(value="VA" selected=(restaurant ? (restaurant.state === "VA" ? "selected" : undefined) : undefined)) Virginia
+                option(value="WA" selected=(restaurant ? (restaurant.state === "WA" ? "selected" : undefined) : undefined)) Washington
+                option(value="WV" selected=(restaurant ? (restaurant.state === "WV" ? "selected" : undefined) : undefined)) West Virginia
+                option(value="WI" selected=(restaurant ? (restaurant.state === "WI" ? "selected" : undefined) : undefined)) Wisconsin
+                option(value="WY" selected=(restaurant ? (restaurant.state === "WY" ? "selected" : undefined) : undefined)) Wyoming
+            p
+              label(for="cuisine") Cuisine
+              br
+              select
+                option(value="Mexican" selected=(restaurant ? (restaurant.cuisine === "Mexican" ? "selected" : undefined) : undefined)) Mexican
+                option(value="Italian" selected=(restaurant ? (restaurant.cuisine === "Italian" ? "selected" : undefined) : undefined)) Italian
+                option(value="American" selected=(restaurant ? (restaurant.cuisine === "American" ? "selected" : undefined) : undefined)) American
+                option(value="Thai" selected=(restaurant ? (restaurant.cuisine === "Thai" ? "selected" : undefined) : undefined)) Thai
+                option(value="Vietnamese" selected=(restaurant ? (restaurant.cuisine === "Vietnamese" ? "selected" : undefined) : undefined)) Vietnamese              
+            p            
+              label Rating
+                input(type="radio" name="rating" value="1" checked=(restaurant ? (restaurant.rating === 1 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="2" checked=(restaurant ? (restaurant.rating === 2 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="3" checked=(restaurant ? (restaurant.rating === 3 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="4" checked=(restaurant ? (restaurant.rating === 4 ? true : undefined): undefined))
+                input(type="radio" name="rating" value="5" checked=(restaurant ? (restaurant.rating === 5 ? true : undefined): undefined))
+            p
+            label(for="description") Description
             br
-            input(type="text" id="name" name='name' value= restaurant.name placeholder="Restaurant Name" maxlength="20")
-          p
-            label(for="city") Location
+            textarea(rows="5" id='description' name='description' placeholder="Short Bio") #{restaurant.description}
             br
-            input(type="text" id="city" name='city' value= restaurant.city placeholder="City" maxlength="20")
-          p
-            select
-              option(value="AL" selected=(restaurant ? (restaurant.state === "AL" ? "selected" : undefined) : undefined)) Alabama
-              option(value="AK" selected=(restaurant ? (restaurant.state === "AK" ? "selected" : undefined) : undefined)) Alaska
-              option(value="AZ" selected=(restaurant ? (restaurant.state === "AZ" ? "selected" : undefined) : undefined)) Arizona
-              option(value="AR" selected=(restaurant ? (restaurant.state === "AR" ? "selected" : undefined) : undefined)) Arkansas
-              option(value="CA" selected=(restaurant ? (restaurant.state === "CA" ? "selected" : undefined) : undefined)) California
-              option(value="CO" selected=(restaurant ? (restaurant.state === "CO" ? "selected" : undefined) : undefined)) Colorado
-              option(value="CT" selected=(restaurant ? (restaurant.state === "CT" ? "selected" : undefined) : undefined)) Connecticut
-              option(value="DE" selected=(restaurant ? (restaurant.state === "DE" ? "selected" : undefined) : undefined)) Delaware
-              option(value="DC" selected=(restaurant ? (restaurant.state === "DC" ? "selected" : undefined) : undefined)) District Of Columbia
-              option(value="FL" selected=(restaurant ? (restaurant.state === "FL" ? "selected" : undefined) : undefined)) Florida
-              option(value="GA" selected=(restaurant ? (restaurant.state === "GA" ? "selected" : undefined) : undefined)) Georgia
-              option(value="HI" selected=(restaurant ? (restaurant.state === "HI" ? "selected" : undefined) : undefined)) Hawaii
-              option(value="ID" selected=(restaurant ? (restaurant.state === "ID" ? "selected" : undefined) : undefined)) Idaho
-              option(value="IL" selected=(restaurant ? (restaurant.state === "IL" ? "selected" : undefined) : undefined)) Illinois
-              option(value="IN" selected=(restaurant ? (restaurant.state === "IN" ? "selected" : undefined) : undefined)) Indiana
-              option(value="IA" selected=(restaurant ? (restaurant.state === "IA" ? "selected" : undefined) : undefined)) Iowa
-              option(value="KS" selected=(restaurant ? (restaurant.state === "KS" ? "selected" : undefined) : undefined)) Kansas
-              option(value="KY" selected=(restaurant ? (restaurant.state === "KY" ? "selected" : undefined) : undefined)) Kentucky
-              option(value="LA" selected=(restaurant ? (restaurant.state === "LA" ? "selected" : undefined) : undefined)) Louisiana
-              option(value="ME" selected=(restaurant ? (restaurant.state === "ME" ? "selected" : undefined) : undefined)) Maine
-              option(value="MD" selected=(restaurant ? (restaurant.state === "MD" ? "selected" : undefined) : undefined)) Maryland
-              option(value="MA" selected=(restaurant ? (restaurant.state === "MA" ? "selected" : undefined) : undefined)) Massachusetts
-              option(value="MI" selected=(restaurant ? (restaurant.state === "MI" ? "selected" : undefined) : undefined)) Michigan
-              option(value="MN" selected=(restaurant ? (restaurant.state === "MN" ? "selected" : undefined) : undefined)) Minnesota
-              option(value="MS" selected=(restaurant ? (restaurant.state === "MS" ? "selected" : undefined) : undefined)) Mississippi
-              option(value="MO" selected=(restaurant ? (restaurant.state === "MO" ? "selected" : undefined) : undefined)) Missouri
-              option(value="MT" selected=(restaurant ? (restaurant.state === "MT" ? "selected" : undefined) : undefined)) Montana
-              option(value="NE" selected=(restaurant ? (restaurant.state === "NE" ? "selected" : undefined) : undefined)) Nebraska
-              option(value="NV" selected=(restaurant ? (restaurant.state === "NV" ? "selected" : undefined) : undefined)) Nevada
-              option(value="NH" selected=(restaurant ? (restaurant.state === "NH" ? "selected" : undefined) : undefined)) New Hampshire
-              option(value="NJ" selected=(restaurant ? (restaurant.state === "NJ" ? "selected" : undefined) : undefined)) New Jersey
-              option(value="NM" selected=(restaurant ? (restaurant.state === "NM" ? "selected" : undefined) : undefined)) New Mexico
-              option(value="NY" selected=(restaurant ? (restaurant.state === "NY" ? "selected" : undefined) : undefined)) New York
-              option(value="NC" selected=(restaurant ? (restaurant.state === "NC" ? "selected" : undefined) : undefined)) North Carolina
-              option(value="ND" selected=(restaurant ? (restaurant.state === "ND" ? "selected" : undefined) : undefined)) North Dakota
-              option(value="OH" selected=(restaurant ? (restaurant.state === "OH" ? "selected" : undefined) : undefined)) Ohio
-              option(value="OK" selected=(restaurant ? (restaurant.state === "OK" ? "selected" : undefined) : undefined)) Oklahoma
-              option(value="OR" selected=(restaurant ? (restaurant.state === "OR" ? "selected" : undefined) : undefined)) Oregon
-              option(value="PA" selected=(restaurant ? (restaurant.state === "PA" ? "selected" : undefined) : undefined)) Pennsylvania
-              option(value="RI" selected=(restaurant ? (restaurant.state === "RI" ? "selected" : undefined) : undefined)) Rhode Island
-              option(value="SC" selected=(restaurant ? (restaurant.state === "SC" ? "selected" : undefined) : undefined)) South Carolina
-              option(value="SD" selected=(restaurant ? (restaurant.state === "SD" ? "selected" : undefined) : undefined)) South Dakota
-              option(value="TN" selected=(restaurant ? (restaurant.state === "TN" ? "selected" : undefined) : undefined)) Tennessee
-              option(value="TX" selected=(restaurant ? (restaurant.state === "TX" ? "selected" : undefined) : undefined)) Texas
-              option(value="UT" selected=(restaurant ? (restaurant.state === "UT" ? "selected" : undefined) : undefined)) Utah
-              option(value="VT" selected=(restaurant ? (restaurant.state === "VT" ? "selected" : undefined) : undefined)) Vermont
-              option(value="VA" selected=(restaurant ? (restaurant.state === "VA" ? "selected" : undefined) : undefined)) Virginia
-              option(value="WA" selected=(restaurant ? (restaurant.state === "WA" ? "selected" : undefined) : undefined)) Washington
-              option(value="WV" selected=(restaurant ? (restaurant.state === "WV" ? "selected" : undefined) : undefined)) West Virginia
-              option(value="WI" selected=(restaurant ? (restaurant.state === "WI" ? "selected" : undefined) : undefined)) Wisconsin
-              option(value="WY" selected=(restaurant ? (restaurant.state === "WY" ? "selected" : undefined) : undefined)) Wyoming
-          p
-            label(for="cuisine") Cuisine
-            br
-            select
-              option(value="Mexican" selected=(restaurant ? (restaurant.cuisine === "Mexican" ? "selected" : undefined) : undefined)) Mexican
-              option(value="Italian" selected=(restaurant ? (restaurant.cuisine === "Italian" ? "selected" : undefined) : undefined)) Italian
-              option(value="American" selected=(restaurant ? (restaurant.cuisine === "American" ? "selected" : undefined) : undefined)) American
-              option(value="Thai" selected=(restaurant ? (restaurant.cuisine === "Thai" ? "selected" : undefined) : undefined)) Thai
-              option(value="Vietnamese" selected=(restaurant ? (restaurant.cuisine === "Vietnamese" ? "selected" : undefined) : undefined)) Vietnamese              
-          p            
-            label Rating
-              input(type="radio" name="rating" value="1" checked=(restaurant ? (restaurant.rating === 1 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="2" checked=(restaurant ? (restaurant.rating === 2 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="3" checked=(restaurant ? (restaurant.rating === 3 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="4" checked=(restaurant ? (restaurant.rating === 4 ? true : undefined): undefined))
-              input(type="radio" name="rating" value="5" checked=(restaurant ? (restaurant.rating === 5 ? true : undefined): undefined))
-          p
-          label(for="description") Description
-          br
-          textarea(rows="5" id='description' name='description' placeholder="Short Bio") #{restaurant.description}
-          br
-          button(type="submit" id='editclickme') Submit
-          a(href='/restaurants/') Cancel
-  script(src='https://code.jquery.com/jquery-2.2.0.min.js')
-  script(src='/js/editvalidateshit.js')
+            button(type="submit" id='editclickme') Submit
+            a(href='/restaurants/') Cancel
+    script(src='https://code.jquery.com/jquery-2.2.0.min.js')
+    script(src='/js/editvalidateshit.js')

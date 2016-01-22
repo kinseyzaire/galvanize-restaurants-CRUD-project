@@ -1,34 +1,35 @@
 extends ../layout 
 
 block content 
-  if restaurant
-    div.showww
-      h1 #{restaurant.name} 
-      h3 #{restaurant.city}, #{restaurant.state} 
-      h3 #{restaurant.cuisine}
-      p
-        - var rating = restaurant.rating
-        - for (var x = 0; x < rating; x++)
-          img(src="../images/star.png", alt="rating star") 
-      p #{restaurant.description} 
-      p 
-        a(href='/restaurants/'+ restaurant.id + '/edit') Edit
-        form(action='/restaurants/#{restaurant.id}/delete' method='post')
-          input(type='submit' value='Delete')
-    div.showww
-      h1 employees
-      p
-        a(href="/restaurants/#{restaurant.id}/employees/new") Add a New Employee
-      for employee in employees
-        - if (employee.restaurant_id === restaurant.id)
-          p
-            a(href="/restaurants/#{restaurant.id}/employees/#{employee.id}") #{employee.first_name} #{employee.last_name}
-    div.showww
-      h1 reviews
-      p
-        a(href="/restaurants/#{restaurant.id}/reviews/new") Add a New Review
-      for review in reviews
-        - if (review.restaurant_id === restaurant.id)
-          div
-            a(href="/restaurants/#{restaurant.id}/reviews/#{review.id}") #{review.username}
-            p #{review.comment} 
+  main
+    if restaurant
+      div.showww
+        h1 #{restaurant.name} 
+        h3 #{restaurant.city}, #{restaurant.state} 
+        h3 #{restaurant.cuisine}
+        p
+          - var rating = restaurant.rating
+          - for (var x = 0; x < rating; x++)
+            img(src="../images/star.png", alt="rating star") 
+        p #{restaurant.description} 
+        p 
+          a(href='/restaurants/'+ restaurant.id + '/edit') Edit
+          form(action='/restaurants/#{restaurant.id}/delete' method='post')
+            input(type='submit' value='Delete')
+      div.showww
+        h1 employees
+        p
+          a(href="/restaurants/#{restaurant.id}/employees/new") Add a New Employee
+        for employee in employees
+          - if (employee.restaurant_id === restaurant.id)
+            p
+              a(href="/restaurants/#{restaurant.id}/employees/#{employee.id}") #{employee.first_name} #{employee.last_name}
+      div.showww
+        h1 reviews
+        p
+          a(href="/restaurants/#{restaurant.id}/reviews/new") Add a New Review
+        for review in reviews
+          - if (review.restaurant_id === restaurant.id)
+            div
+              a(href="/restaurants/#{restaurant.id}/reviews/#{review.id}") #{review.username}
+              p #{review.comment} 

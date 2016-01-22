@@ -1,14 +1,15 @@
 extends ../layout 
 
 block content 
-  if employee
-    div.showww
-      h1 #{employee.first_name} 
-      h1 #{employee.last_name}
-      p #{employee.position}
-      p
-        a(href="/restaurants/#{employee.restaurant_id}/employees/#{employee.id}/edit") Edit Employee
-      br  
-      p
-        form(action='/restaurants/#{employee.restaurant_id}/employees/#{employee.id}/delete' method='post')
-          input(type='submit' value='Delete') 
+  main
+    if employee
+      div.showww
+        h1 #{employee.first_name} 
+        h1 #{employee.last_name}
+        p #{employee.position}
+        p
+          a(href="/restaurants/#{employee.restaurant_id}/employees/#{employee.id}/edit") Edit Employee
+        br  
+        p
+          form(action='/restaurants/#{employee.restaurant_id}/employees/#{employee.id}/delete' method='post')
+            input(type='submit' value='Delete') 
