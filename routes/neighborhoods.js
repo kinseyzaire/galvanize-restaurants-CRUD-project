@@ -51,20 +51,17 @@ router.post('/neighborhoods', function(req, res, next) {
 // show neighborhood
 
 router.get('/neighborhoods/:id', function(req, res, next) {
-  Neighborhoods().where('id', req.params.id).then(function(result){
+  Neighborhoods().where('id', req.params.id).first().then(function(result){
     var google_api = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-    var address = (result[0].center).replace(/ /g, "+");
-    console.log(req.params.id);
-    console.log(address);
+    var address = (result.center).replace(/ /g, "+");
     var my_key = "&key=AIzaSyBWq3Gz3IlIWdXeKYBlNubGRBWd-ENdIno";
-    var nresult = result[0];
     request(google_api+address+my_key, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var jase = JSON.parse(body);
         var epicenter = jase.results[0].geometry.location;
         var latitude = epicenter.lat*1;
         var longitude = epicenter.lng*1;
-        res.render('neighborhoods/show', {neighborhood: nresult, latitude: latitude, longitude: longitude});
+        res.render('neighborhoods/show', {neighborhood: result, latitude: latitude, longitude: longitude});
       }
     })
   });

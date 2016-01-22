@@ -2,24 +2,37 @@ extends ../layout
 
 block content 
   a(href="/neighborhoods/new") Add a New Neighborhood
-  if neighborhoods
-    for neighborhood in neighborhoods
-      .showww
-        a(href="/neighborhoods/#{neighborhood.id}") 
-          h1 #{neighborhood.name}
-        a(href="/neighborhoods/#{neighborhood.id}/edit") Edit
-        a(href="/neighborhoods/#{neighborhood.id}/delete") Delete
-        div(id="map#{neighborhood.id}")
+  div
+    if neighborhoods
+      each neighborhood in neighborhoods
+        .showww
+          a(href="/neighborhoods/#{neighborhood.id}") 
+            h1 #{neighborhood.name}
+          div(id="map#{neighborhood.id}" style="height: 200px; width: 440px; margin: 0 auto; background-color: black")
+          a(href="/neighborhoods/#{neighborhood.id}/edit") Edit
+          a(href="/neighborhoods/#{neighborhood.id}/delete") Delete
+  script.
+    function initMap() {
+      var thehoodz = (!{JSON.stringify(neighborhoods)});
+      var key = "&key=AIzaSyBWq3Gz3IlIWdXeKYBlNubGRBWd-ENdIno";
+      thehoodz.forEach(function(address,index){
+        var hoodid = (address.id);
+        var center = (address.center).replace(/ /g, "+");
+        //- center = center.replace(/ /g, "+");
+        $.ajax({
+          url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+center+key,
+          method: 'GET'
+        }).done(function(response){
+          var loc = response.results[0].geometry.location;
+          var latitude = (loc.lat)*1;
+          var longitude = (loc.lng)*1;
+          var map = new google.maps.Map(document.getElementById('map'+hoodid), {
+              center: {lat: latitude, lng: longitude},
+              zoom: 14
+          });
+        });
+      })
+    }
+  script(src='https://code.jquery.com/jquery-2.2.0.min.js', type='text/javascript')
+  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
     
-            
-  //- script.
-      //- function initMap() {
-      //-   //- var latitude=#{latitude};
-      //-   //- var longitude=#{longitude};
-      //-   var map = new google.maps.Map(document.getElementById('map'), {
-      //-     center: {lat: 37.423021, lng: -122.083739},
-      //-     zoom: 14
-      //-   });
-      //- }
-  //- script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
-  //- 
