@@ -1,0 +1,25 @@
+extends ../layout 
+
+block content 
+  a(href="/neighborhoods/new") Add a New Neighborhood
+  if neighborhoods
+    for neighborhood in neighborhoods
+      .showww
+        a(href="/neighborhoods/#{neighborhood.id}") 
+          h1 #{neighborhood.name}
+        a(href="/neighborhoods/#{neighborhood.id}/edit") Edit
+        a(href="/neighborhoods/#{neighborhood.id}/delete") Delete
+        div(id="map#{neighborhood.id}")
+    
+            
+  //- script.
+      //- function initMap() {
+      //-   //- var latitude=#{latitude};
+      //-   //- var longitude=#{longitude};
+      //-   var map = new google.maps.Map(document.getElementById('map'), {
+      //-     center: {lat: 37.423021, lng: -122.083739},
+      //-     zoom: 14
+      //-   });
+      //- }
+  //- script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHjmrGEdj4v3cDILLJRlp3hzPwBJaR0zg&callback=initMap").
+  //- 

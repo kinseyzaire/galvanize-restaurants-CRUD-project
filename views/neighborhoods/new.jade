@@ -1,0 +1,23 @@
+extends ../layout 
+
+block content 
+
+  div.container
+    h1 Add a Neighborhood
+    form(action='/neighborhoods/' method='post')
+      fieldset
+        legend Add a Neighborhood
+        p
+          label(for="name") Name
+          br
+          input(type="text" id="name" name='name' placeholder="Name")
+        p
+          label(for="center") Epicenter
+          br
+          input(type="text" id="center" name='center' placeholder="Central Street Address")
+      
+        button(type="submit") Submit
+        br
+        a(href='/neighborhoods/') Cancel
+
+              
