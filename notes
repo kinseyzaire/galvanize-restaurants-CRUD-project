@@ -1,0 +1,8 @@
+mocha -w keeps mocha running
+
+return !input.trim() ? "can't be blank" : ""
+
+SUCCESS - redirect
+FAIL - rerender
+
+validate.nameIsNotBlank(req.body.name)

@@ -1,4 +1,3 @@
-// $("#addKnopf").attr("disabled", "disabled");
 var inputs = $("#name, #city, #state, #cuisine, #description");
 
 var validateInputs = function(inputs) {
